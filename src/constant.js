@@ -1,3 +1,4 @@
+import { updateUserEmail } from './apiCall';
 
 export const SIDE_MENU = [{
     name: "Inbox",
@@ -23,6 +24,7 @@ export const SIDE_MENU = [{
     name: "Trash",
     image: "https://www.gstatic.com/images/icons/material/system/1x/delete_black_20dp.png",
     key: "trash",
+    cbFn: async(e) => updateUserEmail({id: e._id, delete: true}).then(res => console.log(res.data))
 }]
 
 export const HEADER_MENU_MAIL = [
@@ -33,12 +35,11 @@ export const HEADER_MENU_MAIL = [
     {
         image: 'https://www.gstatic.com/images/icons/material/system/1x/archive_black_20dp.png',
         class: 'archive-btn',
-        cbFn: ''
     },
     {
         image: 'https://www.gstatic.com/images/icons/material/system/1x/delete_black_20dp.png',
         class: 'trash-btn',
-        cbFn: ''
+        cbFn: async(e) => await updateUserEmail({id: e._id, delete: true}).then(res => console.log(res.data))
     },
     {
         image: 'https://www.gstatic.com/images/icons/material/system/1x/mark_as_unread_black_20dp.png',

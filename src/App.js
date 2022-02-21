@@ -2,7 +2,8 @@ import React from 'react';
 import { SignIn } from './pages/signIn/SignIn';
 import { SignUp } from './pages/signUp/SignUp';
 import { Mail } from './pages/mail/Mail';
-import { BrowserRouter, Route, Routes} from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Redirect } from 'react-router-dom';
+// import { Redirect } from "react-router";
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path='/mail' element={<Mail />} ></Route>
         <Route path='/mail/:type' element={<Mail />} ></Route>
         <Route path='/mail/:type/:selectedMail' element={<Mail />} ></Route>
+        <Route path='/' element={<Mail />} ></Route>
       </Routes>
     </BrowserRouter>
   );

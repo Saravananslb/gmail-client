@@ -8,8 +8,9 @@ export const SelectMenu = ( { HEADER_MENU_MAIL }) => {
         <>
             <div className="mail-bar-menu-container">
                 {HEADER_MENU_MAIL.map(item => 
-                <div className={item.class} key={item.class} onClick={item.cbFn ? item.cbFn : () => navigate(-1)}>
+                <div className={item.class} key={item.class} onClick={item.cbFn ? () => item.cbFn(item) : () => navigate(-1)}>
                     <img src={item.image} alt="" />
+                    {console.log(item.class, item.cbFn)}
                 </div>
                 )}
                 
